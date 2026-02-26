@@ -1,0 +1,32 @@
+#Magician
+import time
+
+#dType.SetEndEffectorSuctionCup(api, 1,  1, 0)#
+dType.SetPTPJointParams(api,200,200,200,200,200,200,200,200,0)
+dType.SetPTPCoordinateParams(api,200,200,200,200,0)
+dType.SetPTPJumpParams(api, 10, 200,0)
+dType.SetPTPCommonParams(api, 100, 100,0)
+
+skladisteX=182
+skladisteY=-45
+skladisteZ=-38
+rHead=-1
+
+
+kostkaVel=25
+vezX=218
+vezY=111
+vezZ=-38
+pocet=0
+for i in range(2):
+	for j in range(2):
+		dType.SetPTPCmd(api, 2, skladisteX+kostkaVel*j, skladisteY+kostkaVel*i*-1, skladisteZ+30, rHead, 1)
+		dType.SetPTPCmd(api, 2, skladisteX+kostkaVel*j, skladisteY+kostkaVel*i*-1, skladisteZ, rHead, 1)
+		dType.SetEndEffectorSuctionCup(api, 1,  1, 1)
+		dType.SetPTPCmd(api, 2, skladisteX+kostkaVel*j, skladisteY+kostkaVel*i*-1, skladisteZ+30, rHead, 1)
+		dType.SetPTPCmd(api, 2, vezX, vezY, vezZ+30+kostkaVel*pocet, rHead, 1)
+		dType.SetPTPCmd(api, 2, vezX, vezY, vezZ+kostkaVel*pocet, rHead, 1)
+		dType.SetEndEffectorSuctionCup(api, 1,  0, 1)
+		dType.SetPTPCmd(api, 2, vezX, vezY, vezZ+30+kostkaVel*pocet, rHead, 1)
+		pocet=pocet+1
+
