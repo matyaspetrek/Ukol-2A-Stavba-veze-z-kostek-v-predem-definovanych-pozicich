@@ -1,7 +1,6 @@
 #Magician
 import time
 
-#dType.SetEndEffectorSuctionCup(api, 1,  1, 0)#
 dType.SetPTPJointParams(api,200,200,200,200,200,200,200,200,0)
 dType.SetPTPCoordinateParams(api,200,200,200,200,0)
 dType.SetPTPJumpParams(api, 10, 200,0)
@@ -29,4 +28,5 @@ for i in range(2):
 		dType.SetEndEffectorSuctionCup(api, 1,  0, 1)
 		dType.SetPTPCmd(api, 2, vezX, vezY, vezZ+30+kostkaVel*pocet, rHead, 1)
 		pocet=pocet+1
+
 
